@@ -1,0 +1,52 @@
+
+An Othello/Reversi Game
+
+Copyright (c) 1999 Eric Mulvaney <eric.mulvaney@gmail.com>
+
+
+INTRODUCTION
+
+Othello (aka Reversi) is a two player strategy game typically played
+on an eight by eight board (like chess and checkers).  The rules
+described in the next section are simple, but mastering the game can
+be quite challenging.  For details, try Wikipedia.
+
+
+HOW TO PLAY
+
+At the outset, and after the computer makes a move, you must place a
+black piece (*X*) at the end of a line of white pieces (O) which end
+at another black piece.  If you cannot make such a move, the computer
+will move again instead.
+
+When you place a black piece as above, all the white pieces between it
+and another black piece (in any direction) are flipped to black.  The
+game continues until neither player can make a move.
+
+At the end, the winner has the most pieces on the board.
+
+
+DISCUSSION
+
+This program implements a depth-first 'best worst-case' search
+algorithm (see suggest_move() and weigh_move()).  The case evaluation
+is based on heuristics, based somewhat on the discussion of Brand by
+Anders Kierulf, except that the heuristics are fixed on cell weight,
+not calculated by relating cells.
+
+The heuristics were 'borrowed' from Gnothello (circa 1999), which now
+appears to be called Iagno <https://live.gnome.org/Iagno>.
+
+The weight of a move is calculated by adding not only the value of the
+piece placed but of all those flipped.  See weigh_move() for more
+detail.
+
+
+REFERENCES
+
+Anders Kierulf, "Brand - an Othello program", Im Haegeler 1,5453,
+Remetschwil, Switzerland.
+
+Stephen L. Stepoway, "Reversi: An experiment in game-playing
+programs", Department of Computer Science and Engineering, Southern
+Methodist University, Dallas, Texas 75275, USA.
