@@ -81,7 +81,7 @@ void clear_board()
 }
 
 /* Count the number of empty spaces on the board. */
-inline int number_of_empties()
+int number_of_empties()
 {
   int i, j, count = 64;
 
@@ -143,7 +143,7 @@ void get_all(int who)
   moves_stack_next++;
 }
 
-inline void undo_get_all()
+void undo_get_all()
 {
   moves_next -= moves_stack_block[--moves_stack_next];
 }
@@ -323,7 +323,7 @@ void print_board()
 
 /*************************************************************************/
 
-inline void fclear_eol(FILE* fin)
+void fclear_eol(FILE* fin)
 {
   while(fgetc(fin) != '\n');
 }
